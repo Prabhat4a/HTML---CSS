@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stunning Calculator</title>
+  <style>
+    * 
+    { 
+        box-sizing: border-box; 
+    }
+    body 
+    {
+      background: #282c34;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .calculator
+     {
+      background: linear-gradient(145deg, #3b3f47, #23262a);
+      border-radius: 20px;
+      box-shadow: 5px 5px 15px #141619, -5px -5px 15px #4f535a;
+      width: 350px;
+      padding: 20px;
+    }
+    .display 
+    {
+      background: #1e2125;
+      color: #e0e0e0;
+      font-size: 2.5rem;
+      text-align: right;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      overflow-x: auto;
+      
+    }
+    .keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 15px;
+    }
+    .btn {
+      font-size: 1.4rem;
+      padding: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 3px 3px 6px #1a1c20, -3px -3px 6px #495058;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: inset 2px 2px 4px #1a1c20, inset -2px -2px 4px #495058;
+    }
+    .number { background: #4e5a67; }
+    .operator { background: #f57f17; color: #1e1e1e; }
+    .function { background: #6c757d; }
+    .zero { grid-column: span 2; }
+    .equals { background: #0d6efd; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="keys">
+      <button class="btn function" onclick="clearAll()">AC</button>
+      <button class="btn function" onclick="toggleSign()">+/-</button>
+      <button class="btn function" onclick="appendOperator('%')">%</button>
+      <button class="btn operator" onclick="appendOperator('/')">÷</button>
+
+      <button class="btn number" onclick="appendNumber('7')">7</button>
+      <button class="btn number" onclick="appendNumber('8')">8</button>
+      <button class="btn number" onclick="appendNumber('9')">9</button>
+      <button class="btn operator" onclick="appendOperator('*')">×</button>
+
+      <button class="btn number" onclick="appendNumber('4')">4</button>
+      <button class="btn number" onclick="appendNumber('5')">5</button>
+      <button class="btn number" onclick="appendNumber('6')">6</button>
+      <button class="btn operator" onclick="appendOperator('-')">−</button>
+
+      <button class="btn number" onclick="appendNumber('1')">1</button>
+      <button class="btn number" onclick="appendNumber('2')">2</button>
+      <button class="btn number" onclick="appendNumber('3')">3</button>
+      <button class="btn operator" onclick="appendOperator('+')">+</button>
+
+      <button class="btn number zero" onclick="appendNumber('0')">0</button>
+      <button class="btn number" onclick="appendNumber('.')">.</button>
+      <button class="btn operator equals" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let current = '', operator = null, resetNext = false;
+
+    function appendNumber(num) {
+      if (resetNext) { current = ''; resetNext = false; }
+      if (num === '.' && current.includes('.')) return;
+      current = current === '0' && num !== '.' ? num : current + num;
+      updateDisplay(current);
+    }
+
+    function appendOperator(op) {
+      if (!current) return;
+      if (operator && !resetNext) calculate();
+      operator = op;
+      current += ' ' + op + ' ';
+      updateDisplay(current);
+      resetNext = false;
+    }
+
+    function clearAll() {
+      current = ''; operator = null; resetNext = false;
+      updateDisplay('0');
+    }
+
+    function toggleSign() {
+      if (!current) return;
+      current = current.startsWith('-') ? current.slice(1) : '-' + current;
+      updateDisplay(current);
+    }
+
+    function calculate() {
+      try {
+        const sanitized = current.replace('×','*').replace('÷','/').replace('%','/100');
+        let result = eval(sanitized);
+        if (!Number.isFinite(result)) result = 'Error';
+        updateDisplay(result);
+        current = String(result);
+        operator = null;
+        resetNext = true;
+      } catch {
+        updateDisplay('Error');
+        current = '';
+      }
+    }
+
+    function updateDisplay(val) {
+      document.getElementById('display').textContent = val;
+    }
+  </script>
+</body>
+</html>
