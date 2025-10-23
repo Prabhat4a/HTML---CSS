@@ -5,6 +5,13 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -17,14 +24,25 @@ header {
   z-index: 99;
 }
 
-body {
-  background-image: url("clay-banks-u27Rrbs9Dwc-unsplash.jpg");
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 105vh;
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+  will-change: transform;
 }
 
 .headlines button {
@@ -54,18 +72,18 @@ body {
   color: aliceblue;
   margin: 40px;
   font-weight: 500;
-  position: relative; /* ADD THIS */
-  display: inline-block; /* ADD THIS */
+  position: relative;
+  display: inline-block;
 }
 
 .headlines a::after {
   content: "";
-  width: 100%; /* Changed from 70% for better effect */
+  width: 100%;
   height: 3px;
   border-radius: 5px;
   position: absolute;
-  bottom: -5px; /* ADD THIS */
-  left: 0; /* ADD THIS */
+  bottom: -5px;
+  left: 0;
   background-color: aliceblue;
   transform: scaleX(0);
   transition: transform 0.5s;
@@ -74,8 +92,6 @@ body {
 .headlines a:hover::after {
   transform: scaleX(1);
 }
-
-/* CSS CODE FOR LOGIN PAGE STARTS FROM HEAR... */
 
 .login-box {
   position: relative;
@@ -95,42 +111,78 @@ body {
 .box-head h1 {
   text-align: center;
   color: aliceblue;
+  margin-bottom: 20px;
 }
 
-.objects .input-box {
-  margin: 20px;
-  align-items: center;
+.box-head-2 h1 {
+  text-align: center;
+  color: aliceblue;
+  margin-bottom: 20px;
+}
+
+.objects {
+  display: block;
+  width: 100%;
+}
+
+.objects-register {
+  display: none;
+  width: 100%;
+}
+
+.objects .input-box,
+.objects-register .input-box {
+  margin: 15px auto;
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: fit-content;
 }
 
 .input-box input {
-  padding: 10px;
+  padding: 10px 10px 10px 35px;
   border-radius: 10px;
   border: none;
   outline: none;
-  height: 30px;
-  width: 250px;
-  justify-content: space-between;
+  height: 35px;
+  width: 280px;
 }
 
-.login-button button {
+.input-box i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 16px;
+}
+
+.login-button button,
+.Register-button button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
-  height: 30px;
+  width: 180px;
+  height: 38px;
   background: #ff6b6b;
   color: white;
   border-radius: 10px;
   border: none;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 15px auto;
+  transition: 0.3s;
 }
 
-.login-button {
+.login-button button:hover,
+.Register-button button:hover {
+  background: #ff5252;
+  transform: scale(1.05);
+}
+
+.login-button,
+.Register-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,6 +191,10 @@ body {
 .remember-forgot {
   display: flex;
   justify-content: space-between;
+  color: aliceblue;
+  font-size: 13px;
+  width: 280px;
+  margin: 10px auto;
 }
 
 .remember-forgot a {
@@ -151,75 +207,33 @@ body {
   text-decoration: underline;
 }
 
-.creat-acc {
-  color: #7c31e4;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.creat-acc:hover {
-  text-decoration: underline;
-}
-
-/* CSS CODES FOR REGISTER PAGE STARTS FROM HEAR... */
-
-.objects {
-  display: none;
-}
-
-.box-head-2 h1 {
-  text-align: center;
-  color: aliceblue;
-}
-
-.objects-register .input-box {
-  margin: 20px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.input-box input {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  height: 30px;
-  width: 250px;
-  justify-content: space-between;
-}
-
-.Register-button button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
-  height: 30px;
-  background: #ff6b6b;
-  color: white;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.Register-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .remember {
   font-size: 13px;
   color: #c0c0c0;
+  text-align: center;
+  margin: 10px 0;
 }
 
 .remember:hover {
   text-decoration: underline;
 }
 
+.account,
 .have-account {
   color: aliceblue;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.creat-acc,
+.Login-acc {
+  color: #7c31e4;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.creat-acc:hover,
+.Login-acc:hover {
+  text-decoration: underline;
 }

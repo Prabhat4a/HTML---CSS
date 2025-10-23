@@ -1,7 +1,16 @@
-// Select the login and register containers
-const loginBox = document.querySelector(".objects");
-const registerBox = document.querySelector(".objects-register");
+const creatAcc = document.querySelector(".creat-acc");
+const loginAcc = document.querySelector(".Login-acc");
+const loginForm = document.querySelector(".objects");
+const registerForm = document.querySelector(".objects-register");
 
-// Select the toggle links
-const createAccLink = document.querySelector(".creat-acc");
-const loginAccLink = document.querySelector(".Login-acc");
+creatAcc.addEventListener("click", (e) => {
+  e.preventDefault();
+  loginForm.style.display = "none";
+  registerForm.style.display = "block";
+});
+
+loginAcc.addEventListener("click", (e) => {
+  e.preventDefault();
+  registerForm.style.display = "none";
+  loginForm.style.display = "block";
+});

@@ -4,14 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>P R A W E</title>
-
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="UPGRADED PAGE.css" />
-
-    <script src="UPGRADED PAGE.js"></script>
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
   <body>
+    <video autoplay muted loop id="bg-video">
+      <source src="website.mp4" type="video/mp4" />
+    </video>
+
+    <div class="video-overlay"></div>
+
     <header>
       <div class="logo">
         <h1>Logo</h1>
@@ -27,79 +33,86 @@
     </header>
 
     <div class="login-box">
+      <!-- LOGIN FORM -->
+
       <div class="objects">
-       <div class="box-head">
-        <h1>Log in</h1>
-      </div> 
+        <div class="box-head">
+          <h1>Log in</h1>
+        </div>
 
         <form>
-          
-        <div class="input-box">
-          <label><input type="text" placeholder=" Enter your email" required /></label>
-<i class='bx  bx-envelope'  ></i> 
-        </div>
+          <div class="input-box">
+            <i class="bx bx-envelope"></i>
+            <input type="text" placeholder="Enter your email" required />
+          </div>
 
-        <div class="input-box">
-          <label><input type="password" placeholder=" Password " required /></label>
-<i class='bx  bx-lock'  ></i> 
-        </div>
+          <div class="input-box">
+            <i class="bx bx-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
 
-        <div class="remember-forgot">
-          <label><input type="checkbox"> Remember me </input></label>
-          <a href="#"> Forgor password? </a>
-        </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox" /> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
 
-        <div class="login-button">
-           <button> Log in </button>
-           </div>
+          <div class="login-button">
+            <button type="button">Log in</button>
+          </div>
 
           <div class="account">
-        <p>Don't have any account
-          <a href="#" class="creat-acc"> Creat an account?</a>
-        </p>
-      </div>
-           
+            <p>
+              Don't have an account?
+              <a href="#" class="creat-acc">Create an account</a>
+            </p>
+          </div>
         </form>
       </div>
+
+      <!-- REGISTER FORM -->
 
       <div class="objects-register">
         <div class="box-head-2">
-        <h1> Register </h1>
-      </div> 
+          <h1>Register</h1>
+        </div>
+
         <form>
-          
-        <div class="input-box">
-          <label><input type="text" placeholder=" Enter your email" required /></label>
-<i class='bx  bx-envelope'  ></i> 
-        </div>
+          <div class="input-box">
+            <i class="bx bx-envelope"></i>
+            <input type="text" placeholder="Enter your email" required />
+          </div>
 
-        <div class="input-box">
-          <label><input type="password" placeholder=" Password " required /></label>
-<i class='bx  bx-lock'  ></i> 
-        </div>
+          <div class="input-box">
+            <i class="bx bx-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
 
-        <div class="input-box">
-          <label><input type="text" placeholder=" Username " required /></label>
-<i class='bx  bx-user'  ></i>  
-        </div>
+          <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" placeholder="Username" required />
+          </div>
 
-        <div class="remember">
-          <input type="checkbox"> I agree with all the terms and condition </input>
-        </div>
+          <div class="remember">
+            <label
+              ><input type="checkbox" /> I agree with all the terms and
+              conditions</label
+            >
+          </div>
 
-        <div class="Register-button">
-           <button> Register </button>
-           </div>
+          <div class="Register-button">
+            <button type="button">Register</button>
+          </div>
 
           <div class="have-account">
-        <p> Already have an account
-          <a href="#" class="Login-acc"> Login account?</a>
-        </p>
-      </div>
-           
+            <p>
+              Already have an account?
+              <a href="#" class="Login-acc">Login</a>
+            </p>
+          </div>
         </form>
       </div>
-
     </div>
+
+    <script src="UPGRADED PAGE.js"></script>
   </body>
 </html>
