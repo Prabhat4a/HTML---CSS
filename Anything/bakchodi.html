@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P R A W E</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="bakchodi.css" />
+  </head>
+  <body>
+    <video autoplay muted loop id="bg-video">
+      <source src="website.mp4" type="video/mp4" />
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <header>
+      <div class="logo">
+        <h1>PRAWE</h1>
+      </div>
+    </header>
+
+    <div class="login-box">
+      <!-- LOGIN FORM -->
+      <div class="objects">
+        <div class="box-head">
+          <h1>Log in</h1>
+        </div>
+
+        <form>
+          <div class="input-box">
+            <i class="bx bx-envelope"></i>
+            <input type="text" placeholder="Enter your email" required />
+          </div>
+
+          <div class="input-box">
+            <i class="bx bx-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
+
+          <div class="remember-forgot">
+            <label><input type="checkbox" /> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <div class="login-button">
+            <button type="button">Log in</button>
+          </div>
+
+          <div class="divider"><span>OR</span></div>
+
+          <div class="google-login-container">
+            <button type="button" class="google-login">
+              Continue with Google
+            </button>
+          </div>
+
+          <div class="account">
+            <p>
+              Don't have an account?
+              <a href="#" class="creat-acc">Create an account</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div class="objects-register">
+        <div class="box-head-2">
+          <h1>Register</h1>
+        </div>
+
+        <form>
+          <div class="input-box">
+            <i class="bx bx-envelope"></i>
+            <input type="text" placeholder="Enter your email" required />
+          </div>
+
+          <div class="input-box">
+            <i class="bx bx-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
+
+          <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" placeholder="Username" required />
+          </div>
+
+          <div class="remember">
+            <label
+              ><input type="checkbox" /> I agree with all the terms and
+              conditions</label
+            >
+          </div>
+
+          <div class="Register-button">
+            <button type="button">Register</button>
+          </div>
+
+          <div class="divider"><span>OR</span></div>
+
+          <div class="google-login-container">
+            <button type="button" class="google-login">
+              Continue with Google
+            </button>
+          </div>
+
+          <div class="have-account">
+            <p>
+              Already have an account? <a href="#" class="Login-acc">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="bakchodi.js"></script>
+  </body>
+</html>
